@@ -1,0 +1,150 @@
+.nomrestaurant{
+    padding-right: 200px;
+}
+.nomrestaurant-admi{
+    padding-right: 100px;
+}
+.decouvrir{
+    margin-left: 30px;
+}
+.commande{
+    margin-left: 30px;
+    width: cover;
+    height: auto;
+    border: 1px solid orange;
+    background-color: orange;
+}
+.commande:hover{
+    background-color: red;
+}
+.apropos{
+    margin-left: 30px;
+}
+a{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+.bg{
+    width: cover;
+    height: 500px;
+    background-image: url("2.jpg");
+    background-size: 100% 100%;
+}
+.vitre{
+    width: cover;
+    height: 500px;
+    background:rgba(0,0,0,0.6);
+    background-size: 100% 100%;
+}
+.photologo, .stext{
+    text-align: center;
+}
+
+.com{
+    width: cover;
+    height: auto;
+    border: 1px solid lightgrey;
+    text-decoration: none;
+    
+}
+.com:hover{
+    background-color:lightgrey;
+}
+.rev{
+    width: cover;
+    height: auto;
+    border: 1px solid orange;
+    text-decoration: none;
+   background-color:orangered ;
+    
+}
+.list2{
+    margin-left: 40px;
+}
+.liste{
+    display: flex;
+    list-style: none;
+    text-align: center;
+}
+select{
+    width: 200px;
+    height: 40px;
+    background-color: teal;
+    color: white;
+}
+.bouton2{
+    text-align: center;
+}
+.bou,.rese{
+   
+    width: 140px;
+}
+.corp{
+    background-color:rgb(223, 208, 189);
+}
+.labelcom{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 19px;
+    color: white;
+    margin-top: 8px;
+    font-weight: bold;
+
+}
+@media screen and (max-width:800px){
+    .photocommande{
+        width: 450px;
+        display: none;
+    }
+    
+    .menu_img{
+        width: 250px;
+    }
+    .logos{
+        display: none;
+    }
+    #stext1{
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+    .stext{
+        margin-bottom: 0px;
+    }
+    .rese{
+        margin-left:90px;
+        margin-top: 20px;
+    }
+    .comm{
+        margin-left:50px;
+    }
+    .liste{
+        display:block;
+        list-style: none;
+        text-align: center;
+    }
+    .list2{
+        margin-top: 30px;
+    }
+    .nomrestaurant{
+        padding-right: 0px;
+    }
+    .decouvrir{
+        margin-left: 0px;
+    }
+    .commande{
+        margin-left: 0px;
+        width: cover;
+        height: auto;
+        border: 1px solid orangered;
+        background-color: orange;
+    }
+    .commande:hover{
+        background-color: red;
+    }
+    .apropos{
+        margin-left: 0px;
+    }
+    .imgs{
+        width: 150px;
+}
+
+}
