@@ -1,7 +1,9 @@
 version: "3"
 services:
   www:
-    image: php:apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - "./:/var/www/html"
     ports:
@@ -10,8 +12,8 @@ services:
   db:
     image: mysql:latest
     environment:
-      - MYSQL_DATABASE=resto
-      - MYSQL_USER=root
+      - MYSQL_DATABASE=gestcom
+      - MYSQL_USER=nadege
       - MYSQL_PASSWORD=12345678
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
   phpmyadmin:
