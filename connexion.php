@@ -19,23 +19,23 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5 mt-5">
-                <div class="card  bg-secondary">
+                <div class="card form-command-low">
                     <form action="" method="post">
-                        <h3 class="text-center text-light mt-3">Se connecter</h3>
+                        <h3 class="text-center text-black mt-3">Se connecter</h3>
                         <div class="text-center">
                             <img src="photo/1646845108739.png" alt="" width="100px">
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-md-6">
-                                <label for="username" class="labelcom">Nom d'utilisateur</label>
-                                <input type="text" class="form-control" name="username" id="username">
+                            <div class="col-md-8">
+                                <label for="username" class="">Nom d'utilisateur</label>
+                                <input type="text" class="form-control" placeholder="Votre nom d'utilisateur" name="username" id="username">
                             </div>
 
                         </div>
-                        <div class="row justify-content-center mt-2">
-                            <div class="col-md-6">
-                                <label for="password "class="labelcom">Votre mot de passe</label>
-                                <input type="password" class="form-control" name="password" id="password">
+                        <div class="row justify-content-center mt-4">
+                            <div class="col-md-8">
+                                <label for="password "class="">Mot de passe</label>
+                                <input type="password" placeholder="Votre mot de passe" class="form-control" name="password" id="password">
                             </div>
                             
                         </div>
