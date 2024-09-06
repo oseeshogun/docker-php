@@ -55,8 +55,16 @@ $plates = [
 
 ?>
 <?php
+session_start(); // Start the session
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: connexion.php"); // Redirect to login if not logged in
+    exit();
+}
 require("header.php");
 require("parametres/insert_commande.php");
+
 ?>
 
 
@@ -77,92 +85,92 @@ require("parametres/insert_commande.php");
     <div class="container">
         <div class="row">
             <div class="col-md-6 mt-5">
+                <h3 class="text-center text-primary">Bonjour <?php echo $_SESSION['username']; ?> 👋</h3>
                 <img src="photo/Waiters-rafiki.png" alt="" width="520px" class="mt-5 photocommande">
             </div>
             <div class="col-md-5">
                 <div class="card mt-4 form-command">
                     <div class="container text-black">
-                        <form action="" method="post">
-                            <h2 class="text-center text-dark mt-2 mt-3">Passer une commande</h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="nom" class="">Votre nom</label>
-                                    <input type="text" placeholder="Nom" name="nom" id="nom" class="form-control">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="nom" class="">Votre prénom</label>
-                                    <input type="text" placeholder="Prénom" name="prenom" id="nom" class="form-control">
-                                </div>
+                        <?php if ($success): ?>
+                            <div class="alert alert-success text-center mt-4">
+                            <h4>Commande envoyée avec succès !</h4>
+                            <p>Merci, votre commande a été reçue et est en cours de traitement.</p>
+                    </div>
+                <?php else: ?>
+                    <form action="" method="post">
+                        <h2 class="text-center text-dark mt-2 mt-3">Passer une commande</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="nom" class="">Votre nom</label>
+                                <input type="text" placeholder="Nom" name="nom" id="nom" class="form-control">
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-md-6">
-                                    <label for="nom" class="">Numéro téléphone</label>
-                                    <input type="phone" placeholder="+243XXXXXXX" name="num" id="nom" class="form-control">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="nom" class="">Adresse mail</label>
-                                    <input type="email" placeholder="xxxx@gmail.com" name="mail" id="nom" class="form-control">
-                                </div>
+                            <div class="col-md-6">
+                                <label for="nom" class="">Votre prénom</label>
+                                <input type="text" placeholder="Prénom" name="prenom" id="nom" class="form-control">
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-md-6">
-                                    <label for="nom" class="">Quantité</label>
-                                    <input type="number" placeholder="5" name="quantite" id="nom" class="form-control">
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="input-group">
-                                        <label for="typeres" class="">Choix du plat</label>
-                                        <select name="choix" id="choix" class="custom-select text-black">
-                                            <?php
-                                            foreach ($plates as $plat) {
-                                                echo "<option value='" . $plat['title'] . "'>" . $plat['title'] . "</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="nom" class="">Numéro téléphone</label>
+                                <input type="phone" placeholder="+243XXXXXXX" name="num" id="nom" class="form-control">
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-md-6">
-                                    <label for="nom" class="">Heure livraison</label>
-                                    <input type="time" name="heure" id="nom" class="form-control">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="nom" class="">Date de livraison</label>
-                                    <input type="date" name="date" id="nom" class="form-control">
-                                </div>
+                            <div class="col-md-6">
+                                <label for="nom" class="">Adresse mail</label>
+                                <input type="email" placeholder="xxxx@gmail.com" name="mail" id="nom" class="form-control">
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label for="nom" class="labelcom">Adresse complete</label>
-                                    <textarea name="adresse" id="" cols="4" rows="2" class="form-control" placeholder="commune/quartier/avenue/N°"></textarea>
-                                </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="nom" class="">Quantité</label>
+                                <input type="number" placeholder="5" name="quantite" id="nom" class="form-control">
                             </div>
-
-                            <div class="row">
-                                <div class="col-md-12 text-center mt-3 mb-3 uppercase">
-                                    <input type="submit" value="ENVOYER LA COMMANDE" class="btn btn-danger" name="com">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 text-center mt-3 mb-3">
-                                    <h4 class="text-center text-light">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <label for="typeres" class="">Choix du plat</label>
+                                    <select name="choix" id="choix" class="custom-select text-black">
                                         <?php
-                                        if (isset($erreur)) {
-                                            echo $erreur;
+                                        foreach ($plates as $plat) {
+                                            echo "<option value='" . $plat['title'] . "'>" . $plat['title'] . "</option>";
                                         }
                                         ?>
-                                    </h4>
-
+                                    </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="nom" class="">Heure livraison</label>
+                                <input type="time" name="heure" id="nom" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="nom" class="">Date de livraison</label>
+                                <input type="date" name="date" id="nom" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="nom" class="labelcom">Adresse complete</label>
+                                <textarea name="adresse" id="" cols="4" rows="2" class="form-control" placeholder="commune/quartier/avenue/N°"></textarea>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-danger text-center">
+                            <?php if (isset($erreur) && !empty($erreur)): ?>
+                                <?php echo htmlspecialchars($erreur); ?>
+                            <?php endif; ?>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center mt-3 mb-3 uppercase">
+                                <input type="submit" value="ENVOYER LA COMMANDE" class="btn btn-danger" name="com">
+                            </div>
+                        </div>
 
 
-                        </form>
-                    </div>
+                    </form>
+                <?php endif; ?>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <script src="js/bootstrap.js">

@@ -1,3 +1,7 @@
+<?php
+  $isLoggedIn = isset($_SESSION['user_id']);
+?>
+
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-danger">
     <div class="container-fluid">
@@ -24,8 +28,12 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-light apropos" href="connexion.php">Connexion</a>
-          </li>
+            <?php if ($isLoggedIn): ?>
+                <a class="nav-link text-light apropos" href="logout.php">Se déconnecter</a>
+            <?php else: ?>
+                <a class="nav-link text-light apropos" href="connexion.php">Connexion</a>
+            <?php endif; ?>
+        </li>
         </ul>
       </div>
     </div>
