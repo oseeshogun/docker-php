@@ -1,5 +1,8 @@
 <?php
-  $isLoggedIn = isset($_SESSION['user_id']);
+if (session_id() == '') {
+  session_start(); // Start the session if it hasn't been started
+}
+$isLoggedIn = isset($_SESSION['user_id']);
 ?>
 
 <header>
@@ -29,11 +32,11 @@
 
           <li class="nav-item">
             <?php if ($isLoggedIn): ?>
-                <a class="nav-link text-light apropos" href="logout.php">Se déconnecter</a>
+              <a class="nav-link text-light apropos" href="logout.php">Se déconnecter</a>
             <?php else: ?>
-                <a class="nav-link text-light apropos" href="connexion.php">Connexion</a>
+              <a class="nav-link text-light apropos" href="connexion.php">Connexion</a>
             <?php endif; ?>
-        </li>
+          </li>
         </ul>
       </div>
     </div>

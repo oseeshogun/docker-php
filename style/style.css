@@ -29,8 +29,9 @@ a {
 .bg {
   width: cover;
   height: 500px;
-  background-image: url("2.jpg");
+  background-image: url("/photo/edward-franklin-Nb_Q-M3Cdzg-unsplash.jpg");
   background-size: cover;
+  background-position: bottom;
 }
 .vitre {
   width: cover;

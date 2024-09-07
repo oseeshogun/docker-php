@@ -25,7 +25,7 @@ require("header.php");
                 <div class="photologo">
                   <img src="style/144.png" alt="" width="150px" class="logos">
                 </div>
-                <h2 class="text-light stext" id="stext1">GOOD FOOD & GOOD HEALTH</h2>
+                <h2 class="text-light stext" id="stext1">BON PLATS & BONNE SANTÉ</h2>
               </div>
 
             </div>
@@ -41,13 +41,6 @@ require("header.php");
               <div class="col-md-3 col-sm-6">
                 <div class="button2">
                   <a href="commande.php" class="btn btn-danger comm uppercase">commander maintenant</a>
-
-                </div>
-
-              </div>
-              <div class="col-md-2 col-sm-6">
-                <div class="button2">
-                  <a href="reserver.php" class="btn text-black rese uppercase" style="background-color: orange;">reservation</a>
 
                 </div>
 

@@ -1,35 +1,37 @@
 <?php
-    session_start();
-    require("bdd.php");
+if (session_id() == '') {
+    session_start(); // Start the session if it hasn't been started
+}
+require("bdd.php");
 
-    ob_start();
+ob_start();
 
-    if (isset($_POST["continuer"])) {
-        $erreur  = "";
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+if (isset($_POST["continuer"])) {
+    $erreur  = "";
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-        if (empty($username)or empty($password)) {
-            $erreur = "veuillez remplir tous les champs";
-        }else {
-            $selection = $bdd->prepare("SELECT * FROM utilisateurs WHERE username=? and motdepasse=?");
-            $selection->execute(array($username,$password));
-            $compte = $selection->rowCount();
-            $user = $selection->fetch(PDO::FETCH_ASSOC);
-            if ($compte == 1) {
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                header("Location: commande.php");
-            } else {
-                $erreur = "Veuillez verifier vos identifiants";
-            }
+    if (empty($username) or empty($password)) {
+        $erreur = "veuillez remplir tous les champs";
+    } else {
+        $selection = $bdd->prepare("SELECT * FROM utilisateurs WHERE username=? and motdepasse=?");
+        $selection->execute(array($username, $password));
+        $compte = $selection->rowCount();
+        $user = $selection->fetch(PDO::FETCH_ASSOC);
+        if ($compte == 1) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            header("Location: commande.php");
+        } else {
+            $erreur = "Veuillez verifier vos identifiants";
         }
     }
+}
 
-    ob_end_flush(); 
+ob_end_flush();
 
 
-   /* if (isset($_POST["continuer"])) {
+/* if (isset($_POST["continuer"])) {
         $username = $_POST["username"];
         $password = $_POST["password"];
 
@@ -45,7 +47,3 @@
         }
     }
 */
-
-
-
-?>

@@ -1,4 +1,5 @@
 <?php
+require("header.php");
 // Create an array of plates with title, image, and description
 $plates = [
     [
@@ -55,9 +56,7 @@ $plates = [
 
 ?>
 
-<?php
-require("header.php");
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
