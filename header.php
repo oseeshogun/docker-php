@@ -29,7 +29,9 @@ $isLoggedIn = isset($_SESSION['user_id']);
           <li class="nav-item">
             <a class="nav-link text-light apropos" href="contact.php">Contactez-nous</a>
           </li>
-
+          <?php if ($isLoggedIn): ?>
+            <a class="nav-link text-light apropos" href="list_commande.php">Liste des commandes</a>
+          <?php endif; ?>
           <li class="nav-item">
             <?php if ($isLoggedIn): ?>
               <a class="nav-link text-light apropos" href="logout.php">Se déconnecter</a>
